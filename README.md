@@ -51,3 +51,19 @@ CREATE TABLE furniture_products (
     embedding VECTOR(1536)
 );
 ```
+
+
+description 활용
+- 임베딩 생성: `style + name + description + features`
+- AI 추천 문구: description 기반으로 GPT가 생성
+
+**예시:**
+```
+description: "편안한 좌석감의 북유럽 스타일 3인 소파. 
+부드러운 패브릭 원단으로 장시간 앉아도 편안합니다."
+
+features: ["친환경 소재", "분리 세척 가능", "10년 AS"]
+
+→ AI 생성 문구:
+"이 소파는 편안한 좌석감이 장점이고, 
+친환경 소재에 세탁도 가능해서 관리가 쉬워요!"
