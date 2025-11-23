@@ -1,0 +1,28 @@
+fastapi
+uvicorn[standard]
+
+psycopg2-binary
+pgvector
+
+openai
+pydantic
+numpy
+python-dotenv
+
+# LangChain
+langchain
+langchain-core
+langchain-openai
+langchain-community
+
+# HTTP
+httpx
+requests
+
+# MCP
+modelcontextprotocol
+
+# (선택) 성능 / 개발 편의
+uvloop
+python-multipart
+loguru

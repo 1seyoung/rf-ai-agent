@@ -67,3 +67,36 @@ features: ["친환경 소재", "분리 세척 가능", "10년 AS"]
 → AI 생성 문구:
 "이 소파는 편안한 좌석감이 장점이고, 
 친환경 소재에 세탁도 가능해서 관리가 쉬워요!"
+```
+
+
+---
+
+
+
+````mermaid
+graph TB
+    User[사용자]
+    Web[Web Frontend]
+    API[FastAPI]
+    Agent[LangChain Agent]
+    MCP[MCP Client]
+    MCPS["MCP Server<br/>PostgreSQL"]
+    DB[(PGVector DB)]
+    OpenAI[OpenAI GPT-4]
+    
+    User -->|입력| Web
+    Web -->|POST /api/generate| API
+    API -->|invoke| Agent
+    Agent -->|Tool 호출| OpenAI
+    Agent -->|DB 쿼리 요청| MCP
+    MCP -->|표준 프로토콜| MCPS
+    MCPS -->|SQL 실행| DB
+    DB -->|결과| MCPS
+    MCPS -->|데이터| MCP
+    MCP -->|결과| Agent
+    OpenAI -->|응답| Agent
+    Agent -->|최종 결과| API
+    API -->|JSON| Web
+    Web -->|표시| User
+````
